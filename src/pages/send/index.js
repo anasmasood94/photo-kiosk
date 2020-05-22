@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react';
-// import * as firebase from 'firebase';
+import React, { useEffect, useContext, useState } from 'react';
+import * as firebase from 'firebase';
 
 import screen from '../../assets/send/screen.jpg';
 import text1 from '../../assets/send/text1.png';
@@ -11,58 +11,80 @@ import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const Send = () => {
-  const { code } = useContext(CodeContext);
+  const { code, team } = useContext(CodeContext);
   let history = useHistory();
+  const [ currentImage, setCurrentImage ] = useState('');
+
+  if( !firebase.apps.length ) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyCb0qbEACfbx48p86a03xa_f81q2k5rGEo",
+      authDomain: "photobooth-31912.firebaseapp.com",
+      databaseURL: "https://photobooth-31912.firebaseio.com",
+      projectId: "photobooth-31912",
+      storageBucket: "photobooth-31912.appspot.com",
+      messagingSenderId: "906833034100",
+      appId: "1:906833034100:web:8860adc17031be6dcd8a21"
+    });
+  }
 
   useEffect(() => {
     if ( !code ) {
+      firebase.database().ref('Application/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
+
+    firebase.database().ref('Application/CurrentPhoto').on('value', function(snapshot) {
+      if (snapshot.val())
+        setCurrentImage(snapshot.val());
+    });
   });
 
   const handleSendEmail = () => {
+    firebase.database().ref('Application/ButtonState/EnterData').set(1);
+    firebase.database().ref('Application/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
     history.push('/data-entry');
   }
 
   return (
-    <div class=" row send_screen_background">
-      <div class="container">
+    <div className=" row send_screen_background">
+      <div className="container">
 
         <section>
-            <div class="container">
-              <div class="d-block send_section_area">
+            <div className="container">
+              <div className="d-block send_section_area">
 
-              <div class="row send_row1">
-                <div class="col-md-12">
-                  <img src={screen} class="screen_img img-fluid mx-auto d-block" alt="Screen"/>
+              <div className="row send_row1">
+                <div className="col-md-12 frame-wrap">
+                  <img src={screen} className="screen_img img-fluid mx-auto d-block" alt="Screen"/>
+                  <img src={currentImage} className="frame-inside-image screen_img img-fluid mx-auto d-block" alt="Screen"/>
                 </div>
               </div>
 
-              <div class="row send_row2">
-                <div class="col-md-12">
-                  <img src={text1} class="text1_img img-fluid mx-auto d-block" alt="Test"/>
+              <div className="row send_row2">
+                <div className="col-md-12">
+                  <img src={text1} className="text1_img img-fluid mx-auto d-block" alt="Test"/>
                 </div>
               </div>
 
-              <div class="row send_row3">
-                <div class="col-md-12">
+              <div className="row send_row3">
+                <div className="col-md-12">
                   <div>
-                    <img src={button1} class="button1_img img-fluid mx-auto d-block" alt="Email" onClick={handleSendEmail}/>
+                    <img src={button1} className="button1_img img-fluid mx-auto d-block" alt="Email" onClick={handleSendEmail}/>
                   </div>
                 </div>
               </div>
 
-              <div class="row send_row4">
-                <div class="col-md-12">
-                  <img src={text2} class="text2_img img-fluid mx-auto d-block" alt="Or"/>
+              <div className="row send_row4">
+                <div className="col-md-12">
+                  <img src={text2} className="text2_img img-fluid mx-auto d-block" alt="Or"/>
                 </div>
               </div>
 
-              <div class="row send_row5">
-                <div class="col-md-12">
+              <div className="row send_row5">
+                <div className="col-md-12">
                   <div>
-                    <img src={button2} class="button2_img img-fluid mx-auto d-block" alt="Social"/>
+                    <img src={button2} className="button2_img img-fluid mx-auto d-block" alt="Social"/>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const EnterPin = () => {
-  const [ number, setNumber ] = useState();
+  const [ number, setNumber ] = useState('');
   const [ disabled, setDisabled ] = useState(false);
 
   const { addToast } = useToasts();
@@ -31,10 +31,13 @@ const EnterPin = () => {
   }
 
   const handleNumberSubmit = (e) => {
+    if ( number.length < 4 )
+      return;
+
     setDisabled(true);
-    firebase.database().ref(`Application/${number}`).once('value').then(function(snapshot) {
+    firebase.database().ref('Application/CurrentAppCode').once('value').then(function(snapshot) {
       var value = snapshot.val();
-      if (value) {
+      if ( number == value ) {
         setCode(number);
         history.push('/start');
         setDisabled(false);

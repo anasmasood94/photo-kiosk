@@ -477,6 +477,20 @@ input number and submit button
   margin: 0px;
   padding: 0px;
 }
+
+.player_wrap {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+
+.player-cuttout {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+}
+
 .players_row3,.players_row4 {
   margin: 0px;
 }
@@ -1012,6 +1026,15 @@ input number and submit button
 }
 }
 
+.frame-wrap {
+  position: relative;
+}
+
+.frame-inside-image {
+  position: absolute;
+  top: 46px;
+  left: 15px;
+}
 
 .cursor-pointer {
   cursor: pointer;

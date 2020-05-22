@@ -1,5 +1,5 @@
-import React, { useEffect, useContext } from 'react';
-// import * as firebase from 'firebase';
+import React, { useEffect, useContext, useState } from 'react';
+import * as firebase from 'firebase';
 
 import screen from '../../assets/data/screen.jpg';
 import { CodeContext } from '../../contexts/code_context_container';
@@ -8,38 +8,67 @@ import { useHistory } from 'react-router-dom'
 const DataEntry = () => {
   const { code } = useContext(CodeContext);
   let history = useHistory();
+  const [ email, setEmail ] = useState('');
+  const [ phone, setPhone ] = useState('');
+
+  if( !firebase.apps.length ) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyCb0qbEACfbx48p86a03xa_f81q2k5rGEo",
+      authDomain: "photobooth-31912.firebaseapp.com",
+      databaseURL: "https://photobooth-31912.firebaseio.com",
+      projectId: "photobooth-31912",
+      storageBucket: "photobooth-31912.appspot.com",
+      messagingSenderId: "906833034100",
+      appId: "1:906833034100:web:8860adc17031be6dcd8a21"
+    });
+  }
 
   useEffect(() => {
     if ( !code ) {
+      firebase.database().ref('Application/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
   });
 
   const handleSubmit = () => {
+    firebase.database().ref('Application/ButtonState/DataSubmited').set(1);
+    firebase.database().ref('Application/ButtonState/EnterData').set(-1);
     history.push('/sent');
   }
 
+  const handleEmailUpdate = (e) => {
+    let value = e.target.value
+    firebase.database().ref('Application/Email').set(value);
+    setEmail(value);
+  }
+
+  const handlePhoneUpdate = (e) => {
+    let value = e.target.value
+    firebase.database().ref('Application/Phone').set(value);
+    setPhone(value);
+  }
+
   return (
-    <div class=" row data_background">
-      <div class="container">
+    <div className=" row data_background">
+      <div className="container">
         <section>
           <div>
-            <div class="container">
-              <div class="d-block data_section_area">
-                <div class="row data_row1">
-                  <div class="col-md-12">
-                    <img src={screen} class="data_screen_img img-fluid img-responsive mx-auto d-block" alt="screen"/>
+            <div className="container">
+              <div className="d-block data_section_area">
+                <div className="row data_row1">
+                  <div className="col-md-12">
+                    <img src={screen} className="data_screen_img img-fluid img-responsive mx-auto d-block" alt="screen"/>
                   </div>
                 </div>
 
-                <div class="row data_row2 ">
-                  <div class="col-md-12 mx-auto d-block px-0">
-                    <div class="data_input_background mx-auto rounded">
+                <div className="row data_row2 ">
+                  <div className="col-md-12 mx-auto d-block px-0">
+                    <div className="data_input_background mx-auto rounded">
                       <form>
-                        <input type="email" name="email" placeholder="Email" class="data_email"/>
-                        <input type="phone" name="email" placeholder="Phone" class="data_phone"/>
-                        <button type="button" class="data_submit" onClick={handleSubmit}>
+                        <input type="email" value={email} onChange={handleEmailUpdate} placeholder="Email" className="data_email"/>
+                        <input type="phone" value={phone} onChange={handlePhoneUpdate} placeholder="Phone" className="data_phone"/>
+                        <button type="button" className="data_submit" onClick={handleSubmit}>
                           Submit
                         </button>
                       </form>

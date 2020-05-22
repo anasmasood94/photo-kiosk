@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from 'react';
-// import * as firebase from 'firebase';
+import * as firebase from 'firebase';
+import { CodeContext } from '../../contexts/code_context_container';
+import { useHistory } from 'react-router-dom';
 
 import photo1 from '../../assets/photo/photo1.png';
 import button1 from '../../assets/photo/button1.png';
@@ -7,30 +9,50 @@ import photo2 from '../../assets/photo/photo2.png';
 import button2 from '../../assets/photo/button2.png';
 import quit from '../../assets/photo/quit.png';
 
-import { CodeContext } from '../../contexts/code_context_container';
-import { useHistory } from 'react-router-dom'
-
 const SelectTeam = () => {
-  const { code, setCode } = useContext(CodeContext);
+  const { code, setCode, setTeam } = useContext(CodeContext);
   let history = useHistory();
+
+  if( !firebase.apps.length ) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyCb0qbEACfbx48p86a03xa_f81q2k5rGEo",
+      authDomain: "photobooth-31912.firebaseapp.com",
+      databaseURL: "https://photobooth-31912.firebaseio.com",
+      projectId: "photobooth-31912",
+      storageBucket: "photobooth-31912.appspot.com",
+      messagingSenderId: "906833034100",
+      appId: "1:906833034100:web:8860adc17031be6dcd8a21"
+    });
+  }
 
   useEffect(() => {
     if ( !code ) {
+      firebase.database().ref('Application/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
   });
 
+  const updateFirebase = (redirect_to) => {
+    firebase.database().ref('Application/ButtonState/Start').set(-1);
+    firebase.database().ref('Application/ButtonState/' + redirect_to).set(1);
+  }
+
   const handleQuit = () =>{
+    updateFirebase("Back");
     setCode('');
     history.push('/');
   }
 
   const handle4Player = () => {
+    updateFirebase("Multi");
+    setTeam(4);
     history.push('/select-member');
   }
 
   const handleSinglePlayer = () => {
+    updateFirebase("Solo");
+    setTeam(1);
     history.push('/select-member');
   }
 

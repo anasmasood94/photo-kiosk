@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-// import * as firebase from 'firebase';
+import * as firebase from 'firebase';
 
 import sent from '../../assets/sent/sent.png';
 import thank_you from '../../assets/sent/thank_you.png';
@@ -9,11 +9,24 @@ import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const Sent = () => {
-  const { code, setCode } = useContext(CodeContext);
+  const { code, setCode, setTeam } = useContext(CodeContext);
   let history = useHistory();
+
+  if( !firebase.apps.length ) {
+    firebase.initializeApp({
+      apiKey: "AIzaSyCb0qbEACfbx48p86a03xa_f81q2k5rGEo",
+      authDomain: "photobooth-31912.firebaseapp.com",
+      databaseURL: "https://photobooth-31912.firebaseio.com",
+      projectId: "photobooth-31912",
+      storageBucket: "photobooth-31912.appspot.com",
+      messagingSenderId: "906833034100",
+      appId: "1:906833034100:web:8860adc17031be6dcd8a21"
+    });
+  }
 
   useEffect(() => {
     if ( !code ) {
+      firebase.database().ref('Application/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
@@ -21,6 +34,9 @@ const Sent = () => {
 
   const handleQuit = () => {
     setCode('');
+    setTeam(0);
+    firebase.database().ref('Application/ButtonState/DataSubmited').set(-1);
+    firebase.database().ref('Application/ButtonState/Back').set(1);
     history.push('/');
   }
 

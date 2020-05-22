@@ -7,12 +7,15 @@ const CodeContextContainer = ({
   children,
 }) => {
   const [code, setCode] = useState();
+  const [team, setTeam] = useState(0);
 
   return (
     <CodeContext.Provider
       value={{
         setCode,
         code,
+        team,
+        setTeam
       }}
     >
       { children }
