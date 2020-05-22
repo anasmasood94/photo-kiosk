@@ -1,0 +1,1018 @@
+body html {
+  margin: 0px;
+  padding: 0px;
+}
+
+/*=====================================================================
+            Styling for Start Page
+=====================================================================*/
+
+/*------------------------
+  Background image
+------------------------*/
+
+.background_img{
+
+  background-image: url("./assets/start/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*------------------------
+  Logo and image
+------------------------*/
+
+.logo {
+  margin-top: 477px;
+}
+.logo_img {
+  width: 506px;
+  height: 238px;
+}
+
+/*------------------------
+  Bud_light and image
+------------------------*/
+
+.bud_light {
+  margin-top: 67px;
+}
+.bud_light_img {
+  width: 490px;
+  height: 278px;
+}
+
+/*------------------------
+  Button and image
+------------------------*/
+
+.buton {
+  margin-top: 255px;
+}
+.buton_img {
+  width: 720px;
+  height: 214px;
+}
+
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+
+@media (max-width: 575.98px) {
+  .background_img{
+  width: 414px;
+  height: 930px;
+}
+
+/*------------------------
+  Logo and image
+------------------------*/
+
+.logo {
+  margin-top: 201px;
+}
+.logo_img {
+  width: 173px;
+  height: 88px;
+}
+
+/*------------------------
+  Bud_light and image
+------------------------*/
+
+.bud_light {
+  margin-top: 28px;
+}
+.bud_light_img {
+  width: 168px;
+  height: 103px;
+}
+
+/*------------------------
+  Button and image
+------------------------*/
+
+.buton {
+  margin-top: 107px;
+}
+.buton_img {
+  width: 246px;
+  height: 80px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+@media (min-width: 576px) and (max-width: 770.98px) {
+  .background_img{
+  width: 768px;
+  height: 1400px;
+}
+
+/*------------------------
+  Logo and image
+------------------------*/
+
+.logo {
+  margin-top: 303px;
+}
+.logo_img {
+  width: 312px;
+  height: 151px;
+}
+
+/*------------------------
+  Bud_light and image
+------------------------*/
+
+.bud_light {
+  margin-top: 42px;
+}
+.bud_light_img {
+  width: 302px;
+  height: 176px;
+}
+
+/*------------------------
+  Button and image
+------------------------*/
+
+.buton {
+  margin-top: 162px;
+}
+.buton_img {
+  width: 445px;
+  height: 136px;
+}
+}
+
+/*=====================================================================
+            Styling for Pin Number Page
+=====================================================================*/
+
+.pin_background{
+
+  background-image: url("./assets/pin/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+.pin_section {
+  text-align: center;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.enter_nmuber_row {
+  margin-top: 250px;
+}
+.enter_nmuber{
+  width: 675px;
+  height: 83px;
+}
+/*------------------------
+input number and submit button
+------------------------*/
+.input_nmuber_row {
+  margin-top: 150px;
+}
+.pin_input_background {
+  width: 830px;
+  height: 434px;
+  background-color: #f1f1f1;
+  border: 2px solid #c1c1c1;
+}
+.input_number {
+  margin-top: 50px;
+  width: 726px;
+  height: 215px;
+  border: 1px solid #474747;
+  font-size: 120px;
+  font-weight: bold;
+  color: #363232;
+  outline: none;
+  text-align: center;
+}
+/*------------------------
+  submit button
+------------------------*/
+.submit_button{
+  margin-top: 35px;
+  width: 827px;
+  height : 131px;
+  font-size: 50px;
+  text-align: center;
+  color: #007aff;
+  vertical-align: middle;
+  font-family: arial;
+  font-weight: 650;
+}
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+
+@media (max-width: 575.98px) {
+  .pin_background{
+  height: 823px;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.enter_nmuber_row {
+  margin-top: 106px;
+}
+.enter_nmuber{
+  width: 226px;
+  height: 35px;
+}
+.input_nmuber_row {
+  margin-top: 63px;
+}
+.pin_input_background {
+  width: 277px;
+  height: 184px;
+}
+.input_number {
+  margin-top: 21px;
+  width: 243px;
+  height: 91px;
+  font-size: 46px;
+}
+/*------------------------
+  submit button
+------------------------*/
+.submit_button{
+  margin-top: 15px;
+  width: 274px;
+  height : 55px;
+  font-size: 19px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+@media (min-width: 576px) and (max-width: 770.98px) {
+  .pin_background{
+  height: 1400px;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.enter_nmuber_row {
+  margin-top: 160px;
+}
+.enter_nmuber{
+  width: 417px;
+  height: 53px;
+}
+/*------------------------
+input number and submit button
+------------------------*/
+.input_nmuber_row {
+  margin-top: 96px;
+}
+.pin_input_background {
+  width: 513px;
+  height: 276px;
+}
+.input_number {
+  margin-top: 32px;
+  width: 449px;
+  height: 137px;
+  font-size: 75px;
+}
+/*------------------------
+  submit button
+------------------------*/
+.submit_button{
+  margin-top: 22px;
+  width: 511px;
+  height : 83px;
+  font-size: 31px;
+}
+}
+/*=====================================================================
+            Styling for photo Page
+=====================================================================*/
+
+.photo_background{
+
+  background-image: url("./assets/photo/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+
+/*------------------------
+  Photo1 Row
+------------------------*/
+.photo1_row {
+  margin-top: 180px;
+}
+.photo1_img,.photo2_img {
+  width: 405;
+  height: 183;
+}
+.button1_img,.button2_img {
+  width: 990px;
+  height: 286px;
+}
+/*------------------------
+  Photo2 Row
+------------------------*/
+.photo2_row {
+  margin-top: 30px;
+}
+.photo2_img {
+  height: 173;
+}
+/*------------------------
+  Quit Row
+------------------------*/
+.photo_quit_row {
+  margin-top: 400px;
+}
+.photo_quit_img {
+  width: 343px;
+  height: 95px;
+}
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+@media (max-width: 575.98px) {
+  .photo_background{
+  width: 414px;
+  height: 930px;
+}
+/*------------------------
+  Photo1 Row
+------------------------*/
+.photo1_row {
+  margin-top: 76px;
+}
+.photo1_img,.photo2_img {
+  width: 135px;
+  height: 78px;
+}
+.button1_img,.button2_img  {
+  width: 330px;
+  height: 121px;
+}
+/*------------------------
+  Photo2 Row
+------------------------*/
+.photo2_row {
+  margin-top: 13px;
+}
+.photo2_img {
+  height: 73;
+}
+/*------------------------
+  Quit Row
+------------------------*/
+.photo_quit_row {
+  margin-top: 150px;
+}
+.photo_quit_img {
+  width: 114px;
+  height: 40px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+
+@media (min-width: 576px) and (max-width: 770.98px) {
+  .photo_background{
+  width: 768;
+  height: 1400px;
+}
+
+/*------------------------
+  Photo1 Row
+------------------------*/
+.photo1_row {
+  margin-top: 115px;
+}
+.photo1_img,.photo2_img {
+  width: 250;
+  height: 117;
+}
+.button1_img,.button2_img {
+  width: 612px;
+  height: 182px;
+}
+/*------------------------
+  Photo2 Row
+------------------------*/
+.photo2_row {
+  margin-top: 19px;
+}
+.photo2_img {
+  height: 110;
+}
+/*------------------------
+  Quit Row
+------------------------*/
+.photo_quit_row {
+  margin-top: 300px;
+}
+.photo_quit_img {
+  width: 212px;
+  height: 61px;
+}
+}
+/*=====================================================================
+            Styling for Select Screen Page
+=====================================================================*/
+
+.select_screen_background {
+  background-image: url("./assets/select_screen/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+.section_area {
+  text-align: center;
+}
+.select_player_row1 {
+  margin-top: 250px;
+  text-align: center;
+}
+.player_text>h1 {
+  font-size: 80px;
+  color: #ffffff;
+}
+.players_row2 {
+  margin: 115px 0px 0px 0px;
+}
+.player_col {
+  padding: 0px;
+  float: right;
+}
+
+.player_img {
+  width: 335px;
+  height: 338px;
+  margin: 0px;
+  padding: 0px;
+}
+.players_row3,.players_row4 {
+  margin: 0px;
+}
+.select_player_row5 {
+  margin: 150px 0px 0px 0px;
+}
+.take_photo_button_img {
+  width: 722px;
+  height: 206px;
+}
+.menu_row6 {
+  margin-top: 40px;
+}
+.menu_button {
+  padding: 0px;
+}
+.menu_button1_img{
+  width: 342px;
+  height: 96px;
+}
+.menu_button2_img{
+  width: 342px;
+  height: 96px;
+}
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+@media (max-width: 575.98px) {
+  .select_screen_background {
+  width: 575;
+  height: 930px;
+}
+
+.select_player_row1 {
+  margin-top: 105px;
+  text-align: center;
+}
+.player_text>h1 {
+  font-size: 20px;
+  color: #ffffff;
+}
+.players_row2 {
+  margin: 49px 0px 0px 0px;
+}
+.player_img {
+  width: 83px;
+  height: 85px;
+}
+.select_player_row5 {
+  margin: 64px 0px 0px 0px;
+}
+.take_photo_button_img {
+  width: 241px;
+  height: 87px;
+}
+.menu_row6 {
+  margin-top: 17px;
+}
+.menu_button1_img,.menu_button2_img{
+  width: 114px;
+  height: 40px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .select_screen_background {
+  width: 991px;
+  height: 1800px;
+}
+.select_player_row1 {
+  margin-top: 159px;
+}
+.player_text>h1 {
+  font-size: 50px;
+}
+.players_row2 {
+  margin: 73px 0px 0px 0px;
+}
+.player_img {
+  width: 173px;
+  height: 170px;
+}
+.select_player_row5 {
+  margin: 96px 0px 0px 0px;
+}
+.take_photo_button_img {
+  width: 500px;
+  height: 131px;
+}
+.menu_row6 {
+  margin-top: 26px;
+}
+.menu_button1_img,.menu_button2_img{
+  width: 240px;
+  height: 75px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad-pro devices
+-------------------------------------------*/
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .select_screen_background {
+  width: 1199px;
+  height: 1868px;
+}
+.select_player_row1 {
+  margin-top: 212px;
+}
+.player_text>h1 {
+  font-size: 66px;
+}
+.players_row2 {
+  margin: 95px 0px 0px 0px;
+}
+.player_img {
+  width: 204px;
+  height: 200px;
+}
+.select_player_row5 {
+  margin: 128px 0px 0px 0px;
+}
+.take_photo_button_img {
+  width: 597px;
+  height: 175px;
+}
+.menu_row6 {
+  margin-top: 35px;
+}
+.menu_button1_img,.menu_button2_img{
+  width: 283px;
+  height: 81px;
+}
+}
+/*=====================================================================
+            Styling for Send Page
+=====================================================================*/
+
+.send_screen_background {
+  background-image: url("./assets/send/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+.send_section_area {
+  text-align: center;
+}
+.send_row1 {
+  margin-top: 218px;
+}
+.screen_img {
+  width: 932px;
+  height: 1121px;
+}
+.send_row2 {
+  margin-top: 70px;
+}
+.text1_img,.text2_img {
+  width: 200px;
+  height: 90px;
+}
+.send_row3 {
+  margin-top: 30px;
+}
+.button1_img,.button2_img {
+  width: 720px;
+  height: 202px;
+}
+.send_row4 {
+  margin-top: 20px;
+}
+.send_row5 {
+  margin-top: 10px;
+}
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+@media (max-width: 575.98px) {
+  .send_screen_background {
+  width: 575;
+  height: 823px;
+}
+.send_row1 {
+  margin-top: 70px;
+}
+.screen_img {
+  width: 300px;
+  height: 400px;
+}
+.send_row2 {
+  margin-top: 26px;
+}
+.text1_img,.text2_img {
+  width: 93px;
+  height: 40px;
+}
+.send_row3 {
+  margin-top: 0px;
+}
+.button1_img,.button2_img {
+  width: 250px;
+  height: 77px;
+}
+.send_row4 {
+  margin-top: 0px;
+}
+.send_row5 {
+  margin-top: 0px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .send_screen_background {
+  width: 991px;
+  height: 1800px;
+}
+.send_row1 {
+  margin-top: 110px;
+}
+.screen_img {
+  width: 660px;
+  height: 920px;
+}
+.send_row2 {
+  margin-top: 30px;
+}
+.text1_img,.text2_img {
+  width: 160px;
+  height: 54px;
+}
+.send_row3 {
+  margin-top: 0px;
+}
+.button1_img,.button2_img {
+  width: 500px;
+  height: 122px;
+}
+.send_row4,.send_row5 {
+  margin-top: 0px;
+}
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .send_screen_background {
+  width: 1199px;
+  height: 2100px;
+}
+.send_row1 {
+  margin-top: 150px;
+}
+.screen_img {
+  width: 932px;
+  height: 1121px;
+}
+.send_row2 {
+  margin-top: 40px;
+}
+.text1_img,.text2_img {
+  width: 200px;
+  height: 90px;
+}
+.send_row3 {
+  margin-top: 0px;
+}
+.button1_img,.button2_img {
+  width: 720px;
+  height: 202px;
+}
+.send_row4,.photo5_row {
+  margin-top: 0px;
+}
+}
+
+/*=====================================================================
+            Styling for Data Entry Page
+=====================================================================*/
+
+.data_background{
+
+  background-image: url("./assets/data/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+.data_section_area {
+  text-align: center;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.data_row1 {
+  margin-top: 70px;
+}
+.data_screen_img {
+  width: 530px;
+  height: 556px;
+}
+.data_row2 {
+  margin-top: 0px;
+}
+.data_input_background {
+  width: 830px;
+  height: 434px;
+  background-color: #f8f8f8;
+  border: 1px solid #919191;
+  box-shadow: 0px 5px 15px;
+}
+.data_email,.data_phone {
+  width: 728px;
+  height: 76px;
+  font-weight: bold;
+  font-size: 30px;
+  padding-left: 25px;
+  margin-top: 47px;
+  border: 1px solid black;
+  outline: none;
+}
+.data_phone {
+  margin-top: 68px;
+}
+.data_submit {
+  width: 828px;
+  height: 134px;
+  margin-top: 30px;
+  font-size: 50px;
+  text-align: center;
+  color: #007aff;
+  vertical-align: middle;
+  font-weight: 550;
+  font-family: arial;
+}
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+@media (max-width: 575.98px) {
+  .data_background {
+  height: 823px;
+}
+.data_row1 {
+  margin-top: 30px;
+}
+.data_screen_img {
+  width: 177px;
+  height: 235px;
+}
+.data_row2 {
+  margin-top: 0px;
+  text-align: center;
+}
+.data_input_background {
+  width: 278px;
+  height: 187px;
+}
+.data_email,.data_phone {
+  width: 243px;
+  height: 32px;
+  font-weight: bold;
+  font-size: 11px;
+  padding-left: 9px;
+  margin-top: 20px;
+}
+.data_phone {
+  margin-top: 29px;
+}
+.data_submit {
+  width: 277px;
+  height: 57px;
+  margin-top: 13px;
+  font-size: 19px;
+  padding : 11px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .data_background {
+  height: 1160px;
+}
+.data_row1 {
+  margin-top: 37px;
+}
+.data_screen_img {
+  width: 328px;
+  height: 293px;
+}
+.data_input_background {
+  width: 513px;
+  height: 229px;
+}
+.data_email,.data_phone {
+  width: 450px;
+  height: 40px;
+  font-size: 17px;
+  padding-left: 16px;
+  margin-top: 25px;
+}
+.data_phone {
+  margin-top: 36px;
+}
+.data_submit {
+  width: 512px;
+  height: 71px;
+  margin-top: 16px;
+  font-size: 29px;
+  padding : 19px;
+  font-weight: 315;
+}
+}
+
+/*=====================================================================
+            Styling for sent Page
+=====================================================================*/
+
+.sent_background{
+
+  background-image: url("./assets/sent/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  width: 100%;
+  height: 2200px;
+  padding: 0px;
+  margin: 0px;
+}
+.sent_section_area {
+  text-align: center;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.sent_row1 {
+  margin-top: 255px;
+}
+.sent_img {
+  width: 200px;
+  height: 75px;
+}
+.sent_row2 {
+  margin-top: 105px;
+}
+.thank_you_img {
+  width: 810px;
+  height: 420px;
+}
+.sent_row3 {
+  margin-top: 128px;
+}
+.exit_img {
+  width: 620px;
+  height: 182px;
+}
+/*-------------------------------------------
+  Media query (display) for small devices
+-------------------------------------------*/
+
+@media (max-width: 575.98px) {
+  .sent_background {
+  height: 823px;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.sent_row1 {
+  margin-top: 84px;
+}
+.sent_img {
+  width: 67px;
+  height: 28px;
+}
+.sent_row2 {
+  margin-top: 39px;
+}
+.thank_you_img {
+  width: 270px;
+  height: 157px;
+}
+.sent_row3 {
+  margin-top: 48px;
+}
+.exit_img {
+  width: 241px;
+  height: 75px;
+}
+}
+/*-------------------------------------------
+  Media query (display) for tab/ipad devices
+-------------------------------------------*/
+
+@media (min-width: 576px) and (max-width: 991px) {
+  .sent_background {
+  height: 1160px;
+}
+/*------------------------
+  enter_nmuber PNG
+------------------------*/
+.sent_row1 {
+  margin-top: 162px;
+}
+.sent_img {
+  width: 160px;
+  height: 60px;
+}
+.sent_row2 {
+  margin-top: 67px;
+}
+.thank_you_img {
+  width: 600px;
+  height: 350px;
+}
+.sent_row3 {
+  margin-top: 82px;
+}
+.exit_img {
+  width: 468px;
+  height: 127px;
+}
+}
+
+
+.cursor-pointer {
+  cursor: pointer;
+}
