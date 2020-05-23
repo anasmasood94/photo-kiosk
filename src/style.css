@@ -219,6 +219,8 @@ input number and submit button
   vertical-align: middle;
   font-family: arial;
   font-weight: 650;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
 }
 /*-------------------------------------------
   Media query (display) for small devices
