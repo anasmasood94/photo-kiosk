@@ -9,7 +9,7 @@ import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const Sent = () => {
-  const { code, setCode, setTeam } = useContext(CodeContext);
+  const { code, setCode, setTeam, baseUrl } = useContext(CodeContext);
   let history = useHistory();
 
   if( !firebase.apps.length ) {
@@ -26,7 +26,7 @@ const Sent = () => {
 
   useEffect(() => {
     if ( !code ) {
-      firebase.database().ref('Application/ButtonState/Back').set(1);
+      firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
@@ -35,8 +35,8 @@ const Sent = () => {
   const handleQuit = () => {
     setCode('');
     setTeam(0);
-    firebase.database().ref('Application/ButtonState/DataSubmited').set(-1);
-    firebase.database().ref('Application/ButtonState/Back').set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/DataSubmited').set(-1);
+    firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
     history.push('/');
   }
 

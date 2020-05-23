@@ -8,7 +8,7 @@ import bud_light from '../../assets/start/bud_light.jpg';
 import start_button from '../../assets/start/start_button.png';
 
 const Start = () => {
-  const { code } = useContext(CodeContext);
+  const { code, baseUrl } = useContext(CodeContext);
   let history = useHistory();
 
   if( !firebase.apps.length ) {
@@ -25,14 +25,14 @@ const Start = () => {
 
   useEffect(() => {
     if ( !code ) {
-      firebase.database().ref('Application/ButtonState/Back').set(1);
+      firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
   });
 
   const handleStart = () =>{
-    firebase.database().ref('Application/ButtonState/Start').set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/Start').set(1);
     history.push('/select-team');
   }
 

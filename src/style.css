@@ -207,8 +207,11 @@ input number and submit button
   submit button
 ------------------------*/
 .submit_button{
+  width: 100%;
+  border: none;
+  background: #F6F6F6;
+  border-top: 1px solid #dedede;
   margin-top: 35px;
-  width: 827px;
   height : 131px;
   font-size: 50px;
   text-align: center;
@@ -254,7 +257,6 @@ input number and submit button
 ------------------------*/
 .submit_button{
   margin-top: 15px;
-  width: 274px;
   height : 55px;
   font-size: 19px;
 }
@@ -297,7 +299,6 @@ input number and submit button
 ------------------------*/
 .submit_button{
   margin-top: 22px;
-  width: 511px;
   height : 83px;
   font-size: 31px;
 }
@@ -1038,4 +1039,11 @@ input number and submit button
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.pin-wrap {
+  background: #F6F6F6;
+  border-radius: 3px;
+  padding: 0px !important;
+  margin: auto 8%;
 }

@@ -10,7 +10,7 @@ const EnterPin = () => {
   const [ disabled, setDisabled ] = useState(false);
 
   const { addToast } = useToasts();
-  const { setCode } = useContext(CodeContext);
+  const { setCode, baseUrl } = useContext(CodeContext);
   let history = useHistory();
 
   if( !firebase.apps.length ) {
@@ -26,7 +26,8 @@ const EnterPin = () => {
   }
 
   const handleNumberChange = (e) => {
-    if (e.target.value.length <= 4)
+    const re = /^[0-9\b]+$/;
+    if (e.target.value.length <= 4 && re.test(e.target.value))
       setNumber(e.target.value);
   }
 
@@ -35,7 +36,7 @@ const EnterPin = () => {
       return;
 
     setDisabled(true);
-    firebase.database().ref('Application/CurrentAppCode').once('value').then(function(snapshot) {
+    firebase.database().ref(baseUrl + '/CurrentAppCode').once('value').then(function(snapshot) {
       var value = snapshot.val();
       if ( number == value ) {
         setCode(number);
@@ -43,7 +44,7 @@ const EnterPin = () => {
         setDisabled(false);
       }
       else {
-        addToast("Code is incorrect, please try again.", { appearance: 'error' });
+        addToast("Code is incorrect, please try again.", { appearance: 'error', autoDismiss: 1000 });
         setDisabled(false);
       }
     });
@@ -62,7 +63,7 @@ const EnterPin = () => {
               </div>
 
               <div className="row input_nmuber_row">
-                <div className="col-md-12 " align="center">
+                <div className="col-md-12 pin-wrap" align="center">
                   <form>
                     <input type="number" value={number} onChange={handleNumberChange} disabled={disabled} maxLength="4" className="input_number" />
                     <br />

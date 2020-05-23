@@ -11,9 +11,9 @@ import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const Send = () => {
-  const { code, team } = useContext(CodeContext);
+  const { code, team, baseUrl } = useContext(CodeContext);
   let history = useHistory();
-  const [ currentImage, setCurrentImage ] = useState('');
+  const [ currentImage, setCurrentImage ] = useState();
 
   if( !firebase.apps.length ) {
     firebase.initializeApp({
@@ -29,20 +29,20 @@ const Send = () => {
 
   useEffect(() => {
     if ( !code ) {
-      firebase.database().ref('Application/ButtonState/Back').set(1);
+      firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
 
-    firebase.database().ref('Application/CurrentPhoto').on('value', function(snapshot) {
+    firebase.database().ref(baseUrl + '/CurrentPhoto').on('value', function(snapshot) {
       if (snapshot.val())
         setCurrentImage(snapshot.val());
     });
   });
 
   const handleSendEmail = () => {
-    firebase.database().ref('Application/ButtonState/EnterData').set(1);
-    firebase.database().ref('Application/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
+    firebase.database().ref(baseUrl + '/ButtonState/EnterData').set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
     history.push('/data-entry');
   }
 
@@ -57,7 +57,10 @@ const Send = () => {
               <div className="row send_row1">
                 <div className="col-md-12 frame-wrap">
                   <img src={screen} className="screen_img img-fluid mx-auto d-block" alt="Screen"/>
-                  <img src={currentImage} className="frame-inside-image screen_img img-fluid mx-auto d-block" alt="Screen"/>
+                  {currentImage ?
+                    <img src={currentImage} className="frame-inside-image screen_img img-fluid mx-auto d-block" alt="Screen"/>
+                    : null
+                  }
                 </div>
               </div>
 

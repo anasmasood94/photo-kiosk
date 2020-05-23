@@ -6,10 +6,11 @@ import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const DataEntry = () => {
-  const { code } = useContext(CodeContext);
+  const { code, baseUrl } = useContext(CodeContext);
   let history = useHistory();
   const [ email, setEmail ] = useState('');
   const [ phone, setPhone ] = useState('');
+  const [ currentImage, setCurrentImage ] = useState('');
 
   if( !firebase.apps.length ) {
     firebase.initializeApp({
@@ -25,27 +26,32 @@ const DataEntry = () => {
 
   useEffect(() => {
     if ( !code ) {
-      firebase.database().ref('Application/ButtonState/Back').set(1);
+      firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
+
+    firebase.database().ref(baseUrl + '/CurrentPhoto').on('value', function(snapshot) {
+      if (snapshot.val())
+        setCurrentImage(snapshot.val());
+    });
   });
 
   const handleSubmit = () => {
-    firebase.database().ref('Application/ButtonState/DataSubmited').set(1);
-    firebase.database().ref('Application/ButtonState/EnterData').set(-1);
+    firebase.database().ref(baseUrl + '/ButtonState/DataSubmited').set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/EnterData').set(-1);
     history.push('/sent');
   }
 
   const handleEmailUpdate = (e) => {
     let value = e.target.value
-    firebase.database().ref('Application/Email').set(value);
+    firebase.database().ref(baseUrl + '/Email').set(value);
     setEmail(value);
   }
 
   const handlePhoneUpdate = (e) => {
     let value = e.target.value
-    firebase.database().ref('Application/Phone').set(value);
+    firebase.database().ref(baseUrl + '/Phone').set(value);
     setPhone(value);
   }
 
@@ -57,8 +63,9 @@ const DataEntry = () => {
             <div className="container">
               <div className="d-block data_section_area">
                 <div className="row data_row1">
-                  <div className="col-md-12">
-                    <img src={screen} className="data_screen_img img-fluid img-responsive mx-auto d-block" alt="screen"/>
+                  <div className="col-md-12 frame-wrap">
+                    <img src={screen} className="sdata_screen_img img-fluid img-responsive mx-auto d-block" alt="Screen"/>
+                    <img src={currentImage} className="frame-inside-image screen_img img-fluid mx-auto d-block" alt="Screen"/>
                   </div>
                 </div>
 

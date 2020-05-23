@@ -8,6 +8,7 @@ const CodeContextContainer = ({
 }) => {
   const [code, setCode] = useState();
   const [team, setTeam] = useState(0);
+  const [baseUrl] = useState('Application');
 
   return (
     <CodeContext.Provider
@@ -15,7 +16,8 @@ const CodeContextContainer = ({
         setCode,
         code,
         team,
-        setTeam
+        setTeam,
+        baseUrl
       }}
     >
       { children }

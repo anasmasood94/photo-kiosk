@@ -11,12 +11,13 @@ import button1 from '../../assets/select_screen/button1.png';
 import quit from '../../assets/select_screen/quit.png';
 import frame from '../../assets/select_screen/frame.png';
 import frame1 from '../../assets/select_screen/frame1.png';
+import clearSelection from '../../assets/select_screen/clearselection_button.png';
 
 import { CodeContext } from '../../contexts/code_context_container';
 import { useHistory } from 'react-router-dom'
 
 const SelectMember = () => {
-  const { code, setCode, team } = useContext(CodeContext);
+  const { code, setCode, team, baseUrl } = useContext(CodeContext);
   let history = useHistory();
   const [ selectedPlayers, setSelectedPlayers ] = useState([]);
 
@@ -34,38 +35,43 @@ const SelectMember = () => {
 
   useEffect(() => {
     if ( !code ) {
-      firebase.database().ref('Application/ButtonState/Back').set(1);
+      firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
   });
 
   const handleQuit = () => {
-    firebase.database().ref('Application/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
-    firebase.database().ref('Application/ButtonState/Back').set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
+    firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
     setCode('');
     history.push('/');
   }
 
+  const handleClearSelection = () => {
+    firebase.database().ref(baseUrl + '/ButtonState/ClearSelection').set(1);
+    setSelectedPlayers([]);
+  }
+
   const handleTakePhoto = () => {
-    if ( selectedPlayers.length < team )
+    if ( selectedPlayers.length < ( team > 1 ? 2 : 1 ) )
       return;
 
-    firebase.database().ref('Application/ButtonState/TakePhoto' + (team > 1 ? 'Multi' : 'Solo' )).set(1);
-    firebase.database().ref('Application/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
+    firebase.database().ref(baseUrl + '/ButtonState/TakePhoto' + (team > 1 ? 'Multi' : 'Solo' )).set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/' + (team > 1 ? 'Multi' : 'Solo' )).set(-1);
     history.push('/send');
   }
 
   const handlePlayerClick = (e, player) => {
     if ( !selectedPlayers.includes(player)){
       if ( selectedPlayers.length < team ){
-        firebase.database().ref('Application/ButtonState/' + player).set(1);
+        firebase.database().ref(baseUrl + '/ButtonState/' + player).set(1);
         let array = selectedPlayers.concat([player]);
         setSelectedPlayers(array);
       }
     }
     else {
-      firebase.database().ref('Application/ButtonState/' + player).set(-1);
+      firebase.database().ref(baseUrl + '/ButtonState/' + player).set(-1);
       let array = selectedPlayers.slice()
       array.splice(selectedPlayers.indexOf(player), 1);
       setSelectedPlayers(array);
@@ -74,13 +80,6 @@ const SelectMember = () => {
 
   const renderFrame = (player) => {
     return selectedPlayers.includes(player) ? frame1 : frame;
-  }
-
-  const renderPlayer = (player) => {
-    return (<div className="player_wrap" onClick={(e) => handlePlayerClick(e, player)}>
-      <img src={ selectedPlayers.includes(player) ? frame1 : frame } className="player_img img-responsive img-fluid" alt="Player"/>
-      <img src={player_0} className="player_img img-responsive img-fluid mx-auto player-cuttout" alt="Player"/>
-    </div>);
   }
 
   return (
@@ -141,6 +140,7 @@ const SelectMember = () => {
               <div className="row menu_row6 mx-auto img-fluid ">
                 <div className="col-md-12 mx-auto menu_button">
                   <img src={quit} className="menu_button2_img img-fluid cursor-pointer" alt="Quit" onClick={handleQuit}/>
+                  <img src={clearSelection} className="menu_button2_img img-fluid cursor-pointer" alt="Quit" onClick={handleClearSelection}/>
                 </div>
 
               </div>

@@ -10,7 +10,7 @@ import button2 from '../../assets/photo/button2.png';
 import quit from '../../assets/photo/quit.png';
 
 const SelectTeam = () => {
-  const { code, setCode, setTeam } = useContext(CodeContext);
+  const { code, setCode, setTeam, baseUrl } = useContext(CodeContext);
   let history = useHistory();
 
   if( !firebase.apps.length ) {
@@ -27,15 +27,15 @@ const SelectTeam = () => {
 
   useEffect(() => {
     if ( !code ) {
-      firebase.database().ref('Application/ButtonState/Back').set(1);
+      firebase.database().ref(baseUrl + '/ButtonState/Back').set(1);
       history.push('/');
       return;
     }
   });
 
   const updateFirebase = (redirect_to) => {
-    firebase.database().ref('Application/ButtonState/Start').set(-1);
-    firebase.database().ref('Application/ButtonState/' + redirect_to).set(1);
+    firebase.database().ref(baseUrl + '/ButtonState/Start').set(-1);
+    firebase.database().ref(baseUrl + '/ButtonState/' + redirect_to).set(1);
   }
 
   const handleQuit = () =>{
